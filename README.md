@@ -7,7 +7,7 @@ Written in JavaScript and run with Node (ES6/Node 12.X)
 
 ## Run solutions with Node
 
-1. Install https://node.js
+1. Install https://nodejs.org
 2. Clone this repo, enter the directory
 
 ```
