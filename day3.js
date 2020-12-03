@@ -330,7 +330,6 @@ const doTheTravel = ([xinc, yinc]) => {
     let hitTrees = 0;
     for (line = 0; line< lines.length; line=line+yinc) {
         let travelLine = lines[line];
-        let multi = Math.floor(travelPosX/LINE_LEN);
         let pos = travelPosX % LINE_LEN;
         let replaceChar = 'O'
         if (travelLine[pos] === '#') {
