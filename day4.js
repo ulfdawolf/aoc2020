@@ -1164,20 +1164,19 @@ const checkPassportsDetails = (passport) => {
 const checkPassports = () => {
     let valids1 = 0;
     let valids2 = 0;
-    input.split('\n\n').map(passport => passport.split(/(\s+)/).filter(e => e.trim().length > 0)).map(passport => {
+    input.split('\n\n').map(passport => passport.split(/(\s+)/).filter(e => e.trim().length > 0)).forEach(passport => {
         let fields = {};
         passport.forEach(field => {
             let [key, value] = field.split(":");
             fields[key] = value;
         })
-        fields.valid = mustKeys1.map(key => !!fields[key]).reduce((prev, current) => prev && current, true);
+        fields.valid = mustKeys1.every(key => !!fields[key]);
         if (fields.valid) {
             valids1++;
             if (checkPassportsDetails(fields)) {
                 valids2++;
             }
         }
-        return fields;
     });
 
     return ["Result AoC 4-1:" + valids1, "Result AoC 4-2:" + valids2];
