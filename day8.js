@@ -717,9 +717,6 @@ const fixBoot = (boot) => {
                     instr++;
                     break;
             }
-            if (instr === boot.length) {
-                break;
-            }
         } 
         swapIndex++;
     } while (instr !== boot.length);
