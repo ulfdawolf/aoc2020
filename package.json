@@ -1,0 +1,9 @@
+{
+  "name": "aoc2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ulfdawolf/aoc2020.git",
+  "author": "Ulf Karlsson <ulf.karlsson.gbg@gmail.com>",
+  "license": "MIT",
+  "package": "module"
+}
