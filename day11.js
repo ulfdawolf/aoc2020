@@ -217,5 +217,5 @@ const loopTheMatrix = (input, version) => {
     return countSeats(oldMatrix);
 }
 
-console.log("Result AoC 10-1:", loopTheMatrix(input, 1));
-console.log("Result AoC 10-2:", loopTheMatrix(input, 2));
+console.log("Result AoC 11-1:", loopTheMatrix(input, 1));
+console.log("Result AoC 11-2:", loopTheMatrix(input, 2));
