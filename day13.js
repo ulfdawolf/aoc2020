@@ -25,4 +25,4 @@ const catchNextBus = (input) => {
     return (closestBus[0] * closestBus[1]);
 }
 
-console.log(catchNextBus(input));
+console.log("Result AoC 13-1:", catchNextBus(input));
