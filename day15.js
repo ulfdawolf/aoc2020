@@ -4,48 +4,39 @@ const input = "0,14,1,3,7,9".split(',').map(n => parseInt(n));
 doGame1 = (input, endAtTurn) => {
     let turns = input.length;
     let latest = input[turns-1];
-    let newNumbers = {};
-    let oldNumbers = {};
-    
+    const start = Date.now();
+    let numbers = new Array(endAtTurn).fill([0,0]);
+    console.log("Time msec: ", Date.now() - start); 
     input.forEach((n,i) => {
-        newNumbers[n] = i+1;
+        numbers[n] = [i+1, 0];
     });
 
     const speak = (num, turn) => {
         latest = num;
-        const newAt = newNumbers[num];
-        const oldAt = oldNumbers[num];
-        if (!!newAt) {
-            delete newNumbers[num];
-            oldNumbers[num] = [turn, newAt];
-        } else {
-            if (!oldAt) {
-                newNumbers[num] = turn;
-            } else {
-                oldNumbers[num] = [turn, oldAt[0]];
-            }
-        }
+        const [t1, ] = numbers[latest];
+        numbers[latest] = [turn, t1];
     }
 
     const isLatestNew = () => {
-        return !!newNumbers[latest];
+        const [, t2] = numbers[latest];
+        return t2 === 0;
     }
 
-    const start = Date.now();
+
     while (turns < endAtTurn) {
         turns++;
         if (isLatestNew()) {
             speak(0, turns);
         } else {
-            let oldAt = oldNumbers[latest];
-            speak(oldAt[0] - oldAt[1], turns);
+            const [t1, t2] = numbers[latest];
+            speak(t1 - t2, turns);
         }
         if (turns%1000000 === 0) {
             console.log(turns);
         }
     }
 
-    console.log("Time sec: ", Date.now() - start);
+    console.log("Time msec: ", Date.now() - start);
     return latest;
 } 
 
